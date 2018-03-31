@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var WebView: WKWebView!
@@ -20,6 +21,7 @@ class ViewController: UIViewController {
     func loadWebView(dataPath: String) {
         WebView.load(URLRequest(url: URL(fileURLWithPath: dataPath)))
     }
+    
     
     func loadViewBaku() {
         WebView.allowsBackForwardNavigationGestures = true
