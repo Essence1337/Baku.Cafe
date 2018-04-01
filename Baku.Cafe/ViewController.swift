@@ -8,6 +8,7 @@
 
 import UIKit
 import WebKit
+import Messages
 
 class ViewController: UIViewController {
 
@@ -15,13 +16,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
     
     func loadWebView(dataPath: String) {
         WebView.load(URLRequest(url: URL(fileURLWithPath: dataPath)))
     }
-    
     
     func loadViewBaku() {
         WebView.allowsBackForwardNavigationGestures = true
@@ -34,8 +36,25 @@ class ViewController: UIViewController {
         super.viewDidAppear( animated)
         loadViewBaku()
         
+        if CheckInternet.Connection(){
+
+            
+            
+        }else{
+            
+        self.Alert(Message: "No Internet")
+    
+            
+        }
+        
     }
     
+    func Alert(Message: String) {
+        let alert = UIAlertController(title: "Alert", message: Message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
