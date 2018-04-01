@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         WebView.load(URLRequest(url: URL(fileURLWithPath: dataPath)))
     }
     
-    func loadViewBaku() {
+    public func loadViewBaku() {
         WebView.allowsBackForwardNavigationGestures = true
         let url:URL = URL(string: "https://baku.cafe/")!
         let urlRequest:URLRequest = URLRequest(url: url)
@@ -41,8 +41,8 @@ class ViewController: UIViewController {
             
             
         }else{
-            
-        self.Alert(Message: "No Internet")
+            performSegue(withIdentifier: "segueNoInternet", sender: self)
+            self.Alert(Message: "No Internet")
     
             
         }
